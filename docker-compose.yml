@@ -3,20 +3,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: ./Dockerfile.dev
-    image: front-end
+      dockerfile: Dockerfile
+    image: frontend-prod
     ports:
-      - "3000:3000"
-    volumes:
-      - /app/node_modules
-      - .:/app
-
-  tests:
-    build:
-      context: .
-      dockerfile: ./Dockerfile.dev
-    image: front-end
-    volumes:
-      - /app/node_modules
-      - .:/app
-    command: ["npm", "run", "test"]
+      - "80:80"
